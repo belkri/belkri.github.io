@@ -728,7 +728,7 @@
           btn.style.cursor = bg.run ? 'not-allowed' : 'pointer';
         }
         var rst = document.getElementById('botgen-reset');
-        if (rst) rst.style.display = (bg.run || bg.finished) ? 'block' : 'none';
+        if (rst) rst.style.display = bg.run ? 'block' : 'none';
         var suc = document.getElementById('botgen-success');
         if (suc) suc.style.display = bg.finished ? 'flex' : 'none';
         var codeEl = document.getElementById('botgen-code');
@@ -751,7 +751,7 @@
         bg.timers.forEach(function(t) { clearTimeout(t); clearInterval(t); });
         bg.timers = [];
         render();
-        var dur = [900,1800,1100,1400,1000,900], step = 0;
+        var dur = [1800,3600,2200,2800,2000,1800], step = 0;
         function next() {
           if (step >= 6) { bg.active = null; bg.run = false; bg.finished = true; render(); return; }
           bg.active = step;
