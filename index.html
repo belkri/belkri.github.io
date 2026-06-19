@@ -362,7 +362,7 @@
       <div class="flex flex-col gap-5">
 
         <!-- Project 1: Bot Generator -->
-        <div class="card reveal" x-data="botFlow()" x-init="init()">
+        <div class="card reveal" x-data="botFlow">
           <div class="p-7 border-b border-white/5">
             <div class="flex items-start justify-between gap-6">
               <div class="flex-1 min-w-0">
@@ -421,7 +421,7 @@
 
                 <div style="margin-top:20px;display:flex;gap:10px">
                   <button @click="run()" :disabled="running"
-                          style="flex:1;padding:11px 0;border-radius:10px;border:none;font-size:13px;font-weight:600;letter-spacing:0.02em;transition:all 0.2s"
+                          style="flex:1;padding:11px 0;border-radius:10px;border:none;font-size:13px;font-weight:600;letter-spacing:0.02em;transition:all 0.2s;cursor:pointer"
                           :style="{background:running?'#1e293b':'linear-gradient(135deg,#7c3aed,#2563eb)',color:running?'#475569':'#fff',cursor:running?'not-allowed':'pointer'}"
                           x-text="running?'Running…':finished?'▶ Run again':'▶ See the flow'"></button>
                   <button x-show="running||finished" @click="reset()"
@@ -591,8 +591,8 @@
     });
 
     // ---------- Bot Generator flow component ----------
-    function botFlow() {
-      return {
+    document.addEventListener('alpine:init', () => {
+    Alpine.data('botFlow', () => ({
         steps: [
           { id:'prompt', icon:'✍️',  label:'User prompt',                detail:'"Send me crypto prices every morning at 9am"',                   color:'#a78bfa' },
           { id:'ai',     icon:'🧠',  label:'Claude generates bot',       detail:'Engineered system prompt → bot.py + requirements.txt + run.sh',  color:'#60a5fa' },
@@ -669,8 +669,8 @@ if __name__ == "__main__":
           this.running=false; this.activeStep=null; this.doneSteps=[];
           this.showCode=false; this.finished=false; this.displayedCode='';
         },
-      };
-    }
+    }));
+    }); // alpine:init
   </script>
 
 </body>
