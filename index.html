@@ -904,7 +904,11 @@
                 '<div style="font-size:11px;color:#334155;margin-bottom:8px">' + (r.year || '') + (r.platform ? ' · ' + r.platform : '') + '</div>' +
                 '<p style="margin:0 0 6px;font-size:12px;color:#64748b;line-height:1.6">' + r.matchReason + '</p>' +
                 '<p style="margin:0 0 10px;font-size:12px;color:#7c3aed;font-style:italic;line-height:1.5">"' + r.elevator + '"</p>' +
-                '<div style="display:flex;flex-wrap:wrap;gap:4px">' + tags + '</div>' +
+                '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px">' + tags + '</div>' +
+                '<div style="display:flex;gap:6px;flex-wrap:wrap">' +
+                  (r.psUrl ? '<a href="' + r.psUrl + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:6px;background:rgba(0,48,135,0.25);border:1px solid rgba(0,104,255,0.3);color:#60a5fa;font-size:11px;font-weight:500;text-decoration:none;transition:all 0.2s" onmouseover="this.style.background=\'rgba(0,48,135,0.45)\'" onmouseout="this.style.background=\'rgba(0,48,135,0.25)\'"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8.984 2.596v17.548l3.915 1.856V6.688c0-.76.336-1.133.87-.983.697.199.83.885.83 1.645v5.759c2.687 1.166 4.687-.29 4.687-3.445 0-3.24-1.124-4.696-4.403-5.784-1.27-.42-3.674-1.039-5.9-1.284z"/></svg>PS Store ↗</a>' : '') +
+                  (r.steamUrl ? '<a href="' + r.steamUrl + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:6px;background:rgba(27,40,56,0.6);border:1px solid rgba(102,192,244,0.25);color:#66c0f4;font-size:11px;font-weight:500;text-decoration:none;transition:all 0.2s" onmouseover="this.style.background=\'rgba(27,40,56,0.9)\'" onmouseout="this.style.background=\'rgba(27,40,56,0.6)\'"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg>Steam ↗</a>' : '') +
+                '</div>' +
               '</div>'
             );
           }).join('');
